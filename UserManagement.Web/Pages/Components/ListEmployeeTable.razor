@@ -1,0 +1,41 @@
+﻿@using UserManagement.Web.Pages.Base;
+@inherits ListEmployeeTableBase
+
+
+@{
+    var EmployeeCount = Employees.Count();
+    var num = 1;
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <table class="table table-bordered table-striped table-responsive flex-nowrap">
+            <thead>
+                <tr class="text-center">
+                    <th style="vertical-align:middle;background-color:darkgray;color:whitesmoke;">No.</th>
+                    <th style="vertical-align:middle;background-color:darkgray;color:whitesmoke;">Employee Number</th>
+                    <th style="vertical-align:middle;background-color:darkgray;color:whitesmoke;">Name</th>
+                    <th style="vertical-align:middle;background-color:darkgray;color:whitesmoke;">Unit</th>
+                    <th style="vertical-align:middle;background-color:darkgray;color:whitesmoke;">Address</th>
+                    <th style="vertical-align:middle;background-color:darkgray;color:whitesmoke;">Option</th>
+                </tr>
+            </thead>
+            @if (EmployeeCount > 0)
+            {
+                <tbody>
+                    @foreach (var item in Employees)
+                    {
+                        <tr class="text-center">
+                            <td>@num</td>
+                            <td>@item.EmployeeNumber</td>
+                            <td>@item.Nama</td>
+                            <td>@item.UnitName</td>
+                            <td>@item.Address</td>
+                            <td><a class="btn btn-sm btn-info" href="/EmployeeDetail/@item.EmployeeNumber" style="color:white">Detail</a></td>
+                        </tr>
+                    }
+                </tbody>
+            }
+        </table>
+    </div>
+</div>

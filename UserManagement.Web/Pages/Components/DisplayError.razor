@@ -1,0 +1,26 @@
+﻿
+
+<div class="container-fluid" style="padding-bottom:3.5rem">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h4 class="mb-3 mt-3">Error!</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h4>You've Encountered an Error!</h4>
+                            <p style="color:gray">@ErrorMessage</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string ErrorMessage { get; set; }
+}

@@ -1,0 +1,114 @@
+﻿@page "/AddEmployee"
+@using UserManagement.Web.Pages.Base;
+@inherits AddEmployeeBase
+
+<div class="container-fluid" style="padding-bottom:3.5rem">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card mt-4">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <div>
+                                <h4 class="mb-3 mt-3">Add Employees</h4>
+                            </div>
+                        </div>
+                        <div class="col-sm-2 d-flex justify-content-end">
+                            <div>
+                                <button class="btn btn-success btn-sm">
+                                    Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="nama">Nama</label>
+                                <input required class="form-control" @bind="PostEmployees.Nama" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="employeeNumber">EmployeeNumber</label>
+                                <input required class="form-control" @bind="PostEmployees.EmployeeNumber" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="department">Department</label>
+                                <select class="form-control">
+                                    <option value="">-- Pilih Department --</option>
+                                    @if (Department != null)
+                                    {
+                                        foreach (var item in Department)
+                                        {
+                                            <option value="@item.Id">@item.Nama</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="unit">Unit</label>
+                                <input required class="form-control" @bind="PostEmployees.UnitId" />
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="status">Status Pegawai</label>
+                                <input required class="form-control" @bind="PostEmployees.StatusId" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input required class="form-control" @bind="PostEmployees.Email" />
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" required class="form-control" @bind="PostEmployees.Password" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <textarea required class="form-control" @bind="PostEmployees.Address" />
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input required class="form-control" @bind="PostEmployees.City" />
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="country">Country</label>
+                                <input required class="form-control" @bind="PostEmployees.Country" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@code{
+    public void Submit()
+    {
+
+        OnClickAdd(PostEmployees);
+    }
+}

@@ -1,0 +1,89 @@
+﻿@page "/EmployeeDetail/{id}"
+@using UserManagement.Web.Pages.Base;
+@using UserManagement.Web.Pages.Components
+@inherits EmployeeDetailBase
+
+@if (Employee == null && ErrorMessage == null)
+{
+    <DisplayLoading/>
+}
+else if (ErrorMessage != null)
+{
+    <DisplayError ErrorMessage="@ErrorMessage"></DisplayError>
+}
+else
+{
+    <div class="container-fluid" style="padding-bottom:3.5rem">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <h4 class="mb-3 mt-3">Detail Employee</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <h3 style="color:navy;">@Employee.Nama</h3>
+                                <p style="color:gray;">Employee Number : @Employee.EmployeeNumber</p>
+                            </div>
+                            <div class="col-sm-3 d-flex justify-content-end">
+                                <div>
+                                    <button class="btn btn-warning">Edit</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th>Unit / Department</th>
+                                            <td> : </td>
+                                            <td>@Employee.UnitName / @Employee.DepartmentName</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Address</th>
+                                            <td> : </td>
+                                            <td>@Employee.Address</td>
+                                        </tr>
+                                        <tr>
+                                            <th>City</th>
+                                            <td> : </td>
+                                            <td>@Employee.City</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Country</th>
+                                            <td> : </td>
+                                            <td>@Employee.Country</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-sm-6">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th>Status Employee</th>
+                                            <td> : </td>
+                                            <td>@Employee.StatusName</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Phone</th>
+                                            <td> : </td>
+                                            <td>@Employee.PhoneNumber</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Email</th>
+                                            <td> : </td>
+                                            <td>@Employee.Email</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
